@@ -55,6 +55,11 @@ namespace Oregon.Models
             return _closing;
         }
 
+        public string GetZipCode()
+        {
+            return _zip;
+        }
+
         public void Save() 
         {
             MySqlConnection conn = DB.Connection();
@@ -145,6 +150,57 @@ namespace Oregon.Models
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
             cmd.CommandText = @"SELECT * FROM places;";
+            MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+            while (rdr.Read())
+            {
+                int Id = rdr.GetInt32(0);
+                string Name = rdr.GetString(1);
+                string Address = rdr.GetString(2);
+                string Category = rdr.GetString(3);
+                string Opening = rdr.GetString(4);
+                string Closing = rdr.GetString(5);
+                string Zip = rdr.GetString(6);
+                Places newPlace = new Places(Id, Name, Address, Category, Opening, Closing, Zip);
+                allPlaces.Add(newPlace);
+            }
+            conn.Close();
+            if (conn != null)
+            {
+                conn.Dispose();
+            }
+            return allPlaces;
+        }
+
+        public static List<Places> GetSome(string inputtedName, string inputtedZip)
+        {
+            List<Places> allPlaces = new List<Places> { };
+            MySqlConnection conn = DB.Connection();
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+
+            if(inputtedZip == "") 
+            {
+                cmd.CommandText = @"SELECT * FROM places WHERE name = @thisName;";
+            }
+            else if (inputtedName == "")
+            {
+                cmd.CommandText = @"SELECT * FROM places WHERE zip = @thisZipCode;";
+            }
+            else
+            {
+                cmd.CommandText = @"SELECT * FROM places WHERE name = @thisName AND zip = @thisZipCode;";
+            }
+
+            MySqlParameter name = new MySqlParameter();
+            name.ParameterName = "@thisName";
+            name.Value = inputtedName;
+            MySqlParameter zipCode = new MySqlParameter();
+            zipCode.ParameterName = "@thisZipCode";
+            zipCode.Value = inputtedZip;
+
+            cmd.Parameters.Add(name);
+            cmd.Parameters.Add(zipCode);
+
             MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
             while (rdr.Read())
             {

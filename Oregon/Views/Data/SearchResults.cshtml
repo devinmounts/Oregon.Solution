@@ -1,0 +1,22 @@
+﻿@{
+    Layout = _"Layout";
+}
+
+ <div class='container'>
+    <div class="row">
+      <div class="col-lg-6">
+        <h1>Country Data</h1>
+
+        @foreach(var place in Model)
+        {
+          <h3>@place.GetName()</h3>
+          <ul>
+            <li>Place Id: @place.GetId()</li>
+            <li>Category: @place.GetCategory()</li>
+            <li>Address: @place.GetAddress()</li>
+            <li>Hours of Operation: @place.GetOpening() AM - @place.GetClosing() PM</li>
+            <li>Zip Code: @place.GetZipCode()</li>
+            <li>GNP: @country.GetGNP()</li>
+          </ul>
+        }
+  </div>
