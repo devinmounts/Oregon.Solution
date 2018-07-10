@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oregon", "Oregon\Oregon.csproj", "{65BE426E-BC9F-4718-8CDC-7F5A3A7DDC9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OregonTests", "OregonTests\OregonTests.csproj", "{C1E147B5-7C48-48C6-9449-36105F24302A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65BE426E-BC9F-4718-8CDC-7F5A3A7DDC9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65BE426E-BC9F-4718-8CDC-7F5A3A7DDC9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65BE426E-BC9F-4718-8CDC-7F5A3A7DDC9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65BE426E-BC9F-4718-8CDC-7F5A3A7DDC9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1E147B5-7C48-48C6-9449-36105F24302A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1E147B5-7C48-48C6-9449-36105F24302A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1E147B5-7C48-48C6-9449-36105F24302A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1E147B5-7C48-48C6-9449-36105F24302A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
