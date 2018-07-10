@@ -23,7 +23,7 @@ namespace Oregon.Controllers
 
             List<Places> results = Places.GetSome(name, zipCode);
 
-            return View("Results", results);
+            return View("SearchResults", results);
         }
 
         [HttpGet("/enter")]
@@ -41,7 +41,10 @@ namespace Oregon.Controllers
             string opening = Request.Form["opening"];
             string closing = Request.Form["closing"];
             string zipCode = Request.Form["zipCode"];
-            return View();
+
+            Places newPlace = new Places(0, name, address, category, opening, closing, zipCode);
+            newPlace.Save();
+            return View("EnterResults", newPlace);
         }
     }
 }

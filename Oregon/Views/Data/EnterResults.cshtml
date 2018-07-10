@@ -1,3 +1,20 @@
 ﻿@{
     Layout = "_Layout";
 }
+
+ <div class='container'>
+    <div class="row">
+      <div class="col-lg-6">
+        <h1>Thank you for the contribution!</h1>
+
+          <h3>@Model.GetName()</h3>
+          <ul>
+            <li>Place Id: @Model.GetId()</li>
+            <li>Category: @Model.GetCategory()</li>
+            <li>Address: @Model.GetAddress()</li>
+            <li>Hours of Operation: @Model.GetOpening() AM - @Model.GetClosing() PM</li>
+            <li>Zip Code: @Model.GetZipCode()</li>
+          </ul>
+     </div>
+   </div>
+</div>

@@ -1,3 +1,42 @@
 ﻿@{
     Layout = "_Layout";
 }
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Enter one of your favorite locations in Oregon!</h1>
+  </div>
+    <form class="form" action="/enter/results" method="post">
+        <div class="form-group">
+          <label for="name">Enter the name</label>
+          <input type="text" name="name">
+        </div>
+        <div class="form-group">
+          <label for="address">Enter the address</label>
+          <input type="text" name="address">
+        </div>
+        <div>
+            <label for="category">Choose a category</label>
+            <select class="form-group" name="category">
+                <option value="restaurant">Restaurant</option>
+                <option value="park">Park</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="shopping">Shopping</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <label for="zipCode">Enter the Zip</label>
+          <input type="text" name="zipCode">
+        </div>
+        <div class="form-group">
+          <label for="opening">Enter Opening Time</label>
+          <input type="text" name="opening">
+        </div>
+        <div class="form-group">
+          <label for="closing">Enter Closing Time</label>
+          <input type="text" name="closing">
+        </div>
+      <button type="submit" class="btn btn-primary" name="button">Click</button>
+    </form>
+</div>
+
