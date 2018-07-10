@@ -46,5 +46,12 @@ namespace Oregon.Controllers
             newPlace.Save();
             return View("EnterResults", newPlace);
         }
+
+        [HttpGet("/all-results")]
+        public ActionResult AllResults()
+        {
+            List<Places> allPlaces = Places.GetAll();
+            return View(allPlaces);
+        }
     }
 }

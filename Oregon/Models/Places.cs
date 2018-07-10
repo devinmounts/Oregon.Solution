@@ -177,13 +177,12 @@ namespace Oregon.Models
             MySqlConnection conn = DB.Connection();
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-            //cmd.CommandText = @"SELECT * FROM places;";
 
-            if(inputtedZip == "") 
+            if(String.IsNullOrEmpty(inputtedZip)) 
             {
-                cmd.CommandText = @"SELECT * FROM places;";
+                cmd.CommandText = @"SELECT * FROM places WHERE name = @thisName;";
             }
-            else if (inputtedName == "")
+            else if (String.IsNullOrEmpty(inputtedName))
             {
                 cmd.CommandText = @"SELECT * FROM places WHERE zip = @thisZipCode;";
             }
