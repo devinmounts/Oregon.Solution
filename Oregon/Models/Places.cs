@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using MySql.Data.MySqlClient;
 namespace Oregon.Models
 {
@@ -171,7 +172,7 @@ namespace Oregon.Models
             return allPlaces;
         }
 
-        public static List<Places> GetSome(string inputtedName, string inputtedZip)
+        public static List<Places> GetSome(string inputtedName, string inputtedZip, string category)
         {
             List<Places> allPlaces = new List<Places> { };
             MySqlConnection conn = DB.Connection();
